@@ -12,6 +12,9 @@ console.log('text 2')
 
 
 let x = 20;
+let y = 30;
+
+let d = 2;
 
 const gameLoop = (timestamp) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
