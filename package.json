@@ -1,0 +1,17 @@
+{
+  "name": "browser-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^13.0.2"
+  },
+  "scripts": {
+    "start": "npx http-server"
+  }
+}
