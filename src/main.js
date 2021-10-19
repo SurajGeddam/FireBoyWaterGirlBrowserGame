@@ -21,6 +21,8 @@ let t = 2;
 let a = 23;
 let b = 12;
 
+let n = 70;
+
 const gameLoop = (timestamp) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
