@@ -2,26 +2,13 @@ console.log('text')
 
 const canvas = document.getElementById('canvas');
 
-canvas.width = 300;
-canvas.height = 300;
+canvas.width = 700;
+canvas.height = 700;
 
 const ctx = canvas.getContext('2d');
 
 
 console.log('text 2')
-
-
-let x = 20;
-let y = 30;
-
-let d = 2;
-
-let t = 2;
-
-let a = 23;
-let b = 12;
-
-let n = 70;
 
 const gameLoop = (timestamp) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
