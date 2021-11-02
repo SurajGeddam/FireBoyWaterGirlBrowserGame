@@ -1,47 +1,41 @@
+import Player from "./player.js";
 console.log('text')
 
 const canvas = document.getElementById('canvas');
 
-canvas.width = 420;
-canvas.height = 420;
+canvas.width = 700;
+canvas.height = 700;
 
 const ctx = canvas.getContext('2d');
 
-
 console.log('text 2')
-// Box width
-var bw = 400;
-// Box height
-var bh = 400;
-// Padding
-var p = 10;
 
-let y = 20;
+let game = undefined;
 
-function drawBoard(){
-    for (var x = 0; x <= bw; x += 40) {
-        ctx.moveTo(0.5 + x + p, p);
-        ctx.lineTo(0.5 + x + p, bh + p);
-    }
-
-    for (var x = 0; x <= bh; x += 40) {
-        ctx.moveTo(p, 0.5 + x + p);
-        ctx.lineTo(bw + p, 0.5 + x + p);
-    }
-    ctx.strokeStyle = "black";
-    ctx.stroke();
+const reset = () => {
+    game = {
+        player: new Player(0, 0, 100, 100),
+        ctx: ctx
+    };
 }
 
+reset();
+
 const gameLoop = (timestamp) => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.beginPath();
-    ctx.rect(y, 20, 25, 25g);
-    ctx.stroke();
+    game.timestamp = timestamp;
 
-    y++; 
+    game.ctx.clearRect(0, 0, canvas.width, canvas.height);
+    game.player.draw(game);
+    game.player.update(game);
 
-    drawBoard();
+    game.dt = (timestamp - game.lastUpdated) / 1000;
+    game.dt *= game.gameSpeed;
+
+    game.player.update(game);
+    game.player.draw(game);
+
+    game.lastUpdated = timestamp;
 
     requestAnimationFrame(gameLoop);
 }
