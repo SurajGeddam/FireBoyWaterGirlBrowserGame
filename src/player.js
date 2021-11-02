@@ -69,7 +69,7 @@ class Player {
 
     draw(game) {
         game.ctx.beginPath();
-        game.ctx.rect(this.x, this.y, 150, 150);
+        game.ctx.rect(this.x, this.y, 25, 25);
         game.ctx.stroke();
     }
 

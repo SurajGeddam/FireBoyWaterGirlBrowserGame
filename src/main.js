@@ -9,13 +9,13 @@ canvas.height = 700;
 const ctx = canvas.getContext('2d');
 
 // Box width
-var bw = canvas.width-20;
+var bw = canvas.width - 20;
 // Box height
-var bh = canvas.height-20;
+var bh = canvas.height - 20;
 // Padding
 var p = 10;
 
-function drawBoard(){
+function drawBoard() {
     for (var x = 0; x <= bw; x += 40) {
         ctx.moveTo(0.5 + x + p, p);
         ctx.lineTo(0.5 + x + p, bh + p);
@@ -34,11 +34,11 @@ let game = undefined;
 const reset = (timestamp) => {
     game = {
         ctx: ctx,
-        player: new Player(0, 0, 150, 150),
+        player: new Player(0, 0, 25, 25),
         dt: 0,
         timestamp: timestamp,
         lastUpdated: timestamp,
-        gameSpeed: 1.5
+        gameSpeed: 5
     };
 }
 
