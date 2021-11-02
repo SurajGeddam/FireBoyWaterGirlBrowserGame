@@ -18,7 +18,8 @@ const reset = (timestamp) => {
         player: new Player(0, 0, 150, 150),
         dt: 0,
         timestamp: timestamp,
-        lastUpdated: timestamp
+        lastUpdated: timestamp,
+        gameSpeed: 1.5
     };
 }
 
@@ -33,6 +34,7 @@ const gameLoop = (timestamp) => {
     game.ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     game.dt = (timestamp - game.lastUpdated) / 1000;
+    game.dt *= game.gameSpeed;
 
     game.player.update(game);
     game.player.draw(game);
