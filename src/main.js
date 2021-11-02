@@ -8,7 +8,26 @@ canvas.height = 700;
 
 const ctx = canvas.getContext('2d');
 
-console.log('text 2')
+// Box width
+var bw = canvas.width-20;
+// Box height
+var bh = canvas.height-20;
+// Padding
+var p = 10;
+
+function drawBoard(){
+    for (var x = 0; x <= bw; x += 40) {
+        ctx.moveTo(0.5 + x + p, p);
+        ctx.lineTo(0.5 + x + p, bh + p);
+    }
+
+    for (var x = 0; x <= bh; x += 40) {
+        ctx.moveTo(p, 0.5 + x + p);
+        ctx.lineTo(bw + p, 0.5 + x + p);
+    }
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+}
 
 let game = undefined;
 
@@ -40,6 +59,8 @@ const gameLoop = (timestamp) => {
     game.player.draw(game);
 
     game.lastUpdated = timestamp;
+
+    drawBoard();
 
     requestAnimationFrame(gameLoop);
 }
