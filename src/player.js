@@ -7,9 +7,11 @@ class Player {
         this.velX = 0;
         this.velY = 0;
 
-        document.addEventListener('keyup', this.keyPressListener);
+        document.addEventListener('keydown', this.keyPressListener);
+
+        document.addEventListener('keyup', this.keyUpListener);
     }
-    /*
+
 
     keyPressListener = (e) => {
         const keyListeners = {
@@ -20,14 +22,43 @@ class Player {
                 this.velX = -20;
             },
             'ArrowUp': () => {
-                this.velY = 20;
+                this.velY = -20;
             },
             'ArrowDown': () => {
-                this.velY = -20;
+                this.velY = 20;
             }
         };
+
+        const fun = keyListeners[e.code];
+
+        if (fun) {
+            fun();
+        }
     }
-    */
+
+    keyUpListener = (e) => {
+        const keyListeners = {
+            'ArrowRight': () => {
+                this.velX = 0;
+            },
+            'ArrowLeft': () => {
+                this.velX = -0;
+            },
+            'ArrowUp': () => {
+                this.velY = 0;
+            },
+            'ArrowDown': () => {
+                this.velY = -0;
+            }
+        };
+
+        const fun = keyListeners[e.code];
+
+        if (fun) {
+            fun();
+        }
+    }
+
 
 
     update(game) {

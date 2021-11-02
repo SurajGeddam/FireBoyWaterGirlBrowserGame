@@ -12,22 +12,25 @@ console.log('text 2')
 
 let game = undefined;
 
-const reset = () => {
+const reset = (timestamp) => {
     game = {
-        player: new Player(0, 0, 100, 100),
-        ctx: ctx
+        ctx: ctx,
+        player: new Player(0, 0, 150, 150),
+        dt: 0,
+        timestamp: timestamp,
+        lastUpdated: timestamp
     };
 }
 
-reset();
-
 const gameLoop = (timestamp) => {
+
+    if (!game) {
+        reset(timestamp);
+    }
 
     game.timestamp = timestamp;
 
     game.ctx.clearRect(0, 0, canvas.width, canvas.height);
-    game.player.draw(game);
-    game.player.update(game);
 
     game.dt = (timestamp - game.lastUpdated) / 1000;
 
