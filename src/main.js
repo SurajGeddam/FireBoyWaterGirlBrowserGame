@@ -30,7 +30,6 @@ const gameLoop = (timestamp) => {
     game.player.update(game);
 
     game.dt = (timestamp - game.lastUpdated) / 1000;
-    game.dt *= game.gameSpeed;
 
     game.player.update(game);
     game.player.draw(game);
