@@ -36,7 +36,7 @@ const gameLoop = (timestamp) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     ctx.beginPath();
-    ctx.rect(y, 20, 25, 25g);
+    ctx.rect(y, 20, 25, 25);
     ctx.stroke();
 
     y++; 
