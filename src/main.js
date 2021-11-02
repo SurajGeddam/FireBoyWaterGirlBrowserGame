@@ -2,44 +2,46 @@ console.log('text')
 
 const canvas = document.getElementById('canvas');
 
-canvas.width = 700;
-canvas.height = 700;
+canvas.width = 420;
+canvas.height = 420;
 
 const ctx = canvas.getContext('2d');
 
-console.log('text 2')
 
-let x = 20;
+console.log('text 2')
+// Box width
+var bw = 400;
+// Box height
+var bh = 400;
+// Padding
+var p = 10;
+
 let y = 20;
+
+function drawBoard(){
+    for (var x = 0; x <= bw; x += 40) {
+        ctx.moveTo(0.5 + x + p, p);
+        ctx.lineTo(0.5 + x + p, bh + p);
+    }
+
+    for (var x = 0; x <= bh; x += 40) {
+        ctx.moveTo(p, 0.5 + x + p);
+        ctx.lineTo(bw + p, 0.5 + x + p);
+    }
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+}
 
 const gameLoop = (timestamp) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Red rectangle
     ctx.beginPath();
-    ctx.lineWidth = "6";
-    ctx.strokeStyle = "red";
-    ctx.rect(x, 20, 150, 100);
-    ctx.stroke();
-    
-
-    // Green rectangle
-    ctx.beginPath();
-    ctx.lineWidth = "4";
-    ctx.strokeStyle = "green";
-    ctx.rect(20, y, 150, 100);
-    ctx.stroke();
-    y++;
-
-    // Blue rectangle
-    ctx.beginPath();
-    ctx.lineWidth = "10";
-    ctx.strokeStyle = "blue";
-    ctx.rect(x, y, 150, 100);
+    ctx.rect(y, 20, 25, 25);
     ctx.stroke();
 
-    x++;
-    y++;
+    y++; 
+
+    drawBoard();
 
     requestAnimationFrame(gameLoop);
 }
