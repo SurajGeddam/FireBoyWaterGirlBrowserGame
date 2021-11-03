@@ -1,4 +1,5 @@
 import Player from "./player.js";
+import Player2 from "./player2.js";
 console.log('text')
 
 const canvas = document.getElementById('canvas');
@@ -26,6 +27,7 @@ function drawBoard() {
         ctx.lineTo(bw + p, 0.5 + x + p);
     }
     ctx.strokeStyle = "black";
+    ctx.lineWidth = "2";
     ctx.stroke();
 }
 
@@ -35,6 +37,7 @@ const reset = (timestamp) => {
     game = {
         ctx: ctx,
         player: new Player(0, 0, 25, 25),
+        player2: new Player2(0, 0, 25, 25),
         dt: 0,
         timestamp: timestamp,
         lastUpdated: timestamp,
@@ -57,6 +60,9 @@ const gameLoop = (timestamp) => {
 
     game.player.update(game);
     game.player.draw(game);
+
+    game.player2.update(game);
+    game.player2.draw(game);
 
     game.lastUpdated = timestamp;
 

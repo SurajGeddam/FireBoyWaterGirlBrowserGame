@@ -1,4 +1,4 @@
-class Player {
+class Player2 {
     constructor(x, y, width, height) {
         this.x = x;
         this.y = y;
@@ -15,16 +15,16 @@ class Player {
 
     keyPressListener = (e) => {
         const keyListeners = {
-            'ArrowRight': () => {
+            'KeyD': () => {
                 this.velX = 20;
             },
-            'ArrowLeft': () => {
+            'KeyA': () => {
                 this.velX = -20;
             },
-            'ArrowUp': () => {
+            'KeyW': () => {
                 this.velY = -20;
             },
-            'ArrowDown': () => {
+            'KeyS': () => {
                 this.velY = 20;
             }
         };
@@ -38,16 +38,16 @@ class Player {
 
     keyUpListener = (e) => {
         const keyListeners = {
-            'ArrowRight': () => {
+            'KeyD': () => {
                 this.velX = 0;
             },
-            'ArrowLeft': () => {
+            'KeyA': () => {
                 this.velX = -0;
             },
-            'ArrowUp': () => {
+            'KeyW': () => {
                 this.velY = 0;
             },
-            'ArrowDown': () => {
+            'KeyS': () => {
                 this.velY = -0;
             }
         };
@@ -71,7 +71,7 @@ class Player {
         game.ctx.beginPath();
         game.ctx.rect(this.x, this.y, 25, 25);
         game.ctx.lineWidth = "3";
-        game.ctx.fillStyle = "#0000FF";
+        game.ctx.fillStyle = "#FF0000";
         game.ctx.fillRect(this.x, this.y, 25, 25);
         game.ctx.stroke();
     }
@@ -79,4 +79,4 @@ class Player {
 
 }
 
-export default Player;
+export default Player2;
